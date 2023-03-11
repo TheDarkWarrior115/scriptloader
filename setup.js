@@ -34,7 +34,22 @@ document.body.appendChild(projectbutton);
 document.body.appendChild(settingsbutton);
 document.body.appendChild(formatbutton);
 
-function project() {
+function load(val) {window.opener().eval("localStorage.getItem("+val+")")}
 
-}
+function project(a) {
+	var x = window.open("","Settings","fullscreen=yes");
+	x.document.body.innerHTML = "<button>Import Project</button><br><h1>Projects:</h1><br>"
+	x.focus();
+	if(localStorage.getItem("Projects_List")){
+	var y = getItem("Projects_List");
+	y = y.split(",");
+	var z = ""
+	for(i=0;i>y.length;i++){
+			z+="<button onclick='load(this.innerHTML)'>"+y.at(i)+"</button><br>"
+		}
+	x.document.body.innerHTML += z;
+	
+	}else{x.document.body.innerHTML+="<h1>No Projects</h1>"}
+	 
+};
 `)
