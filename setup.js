@@ -36,11 +36,20 @@ document.body.appendChild(updatebutton);
 document.body.appendChild(settingsbutton);
 document.body.appendChild(formatbutton);
 
-function load(val) {window.opener().eval("localStorage.getItem("+val+")")}
-
 function project(a) {
 	var x = window.open("","Settings","fullscreen=yes");
-	x.document.body.innerHTML = "<button>Import Project</button><br><h1>Projects:</h1><br>"
+	
+	function load(val) {window.opener().eval("localStorage.getItem("+val+")")};
+	x.function load(val) {window.opener().eval("localStorage.getItem("+val+")")}
+	
+	x.document.body.innerHTML = "<button>Import Project</button><br><h1>Projects:</h1><br>";
+	
+	x.function Import() {
+	var knownprojects = window.opener().localStorage.getItem("knownprojects").split(";");
+	document.body.innerHTML = "<input placeholder='Import Custom Project' type='file' accept='.js'><button onclick = ></button>"
+	for(i=0;i>knownprojects.length;i++){}
+	
+	}
 	x.focus();
 	if(localStorage.getItem("Projects_List")){
 	var y = getItem("Projects_List");
