@@ -1,12 +1,12 @@
 localStorage.setItem("setup","true");
 
+localStorage.setItem("main",`
+
 if(window.matchMedia('(prefers-color-scheme: dark)').matches===true){
 		localStorage.setItem("theme","dark");
 	}else{
 		localStorage.setItem("theme","light");
 };
-
-localStorage.setItem("main",`
 
 var lightstyle=document.createElement("style");
 lightstyle.innerHTML="button {background-color:white;color:black}";
