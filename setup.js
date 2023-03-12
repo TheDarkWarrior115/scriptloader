@@ -1,5 +1,5 @@
 localStorage.setItem("setup","true");
-
+import("update.js")
 localStorage.setItem("main",`
 
 if(window.matchMedia('(prefers-color-scheme: dark)').matches===true){
@@ -9,28 +9,31 @@ if(window.matchMedia('(prefers-color-scheme: dark)').matches===true){
 };
 
 var lightstyle=document.createElement("style");
-lightstyle.innerHTML="button {background-color:white;color:black}";
+lightstyle.innerHTML="button {background-color:white;color:black}body{background-color:white;color:black}";
 lightstyle.id="lightstyle";
 
 var darkstyle=document.createElement("style");
-darkstyle.innerHTML="button {background-color:black;color:lightgrey}";
+darkstyle.innerHTML="button {background-color:black;color:lightgrey}body{background-color:black;color:lightgrey}";
 darkstyle.id="darkstyle";
 
 document.head.appendChild(darkstyle);
 document.head.appendChild(lightstyle);
 
-if(localStorage.getItem("theme")==="dark"){document.querySelector("#lightstyle").disabled=true};
-if(localStorage.getItem("theme")==="light"){document.querySelector("#darkstyle").disabled=true};
+if(localStorage.getItem("theme")==="dark"){document.querySelector("#lightstyle").disabled=true;};
+if(localStorage.getItem("theme")==="light"){document.querySelector("#darkstyle").disabled=true;};
 
 var projectbutton = document.createElement("button");
 var settingsbutton = document.createElement("button");
 var formatbutton = document.createElement("button");
+var updatebutton = document.createElement("button");
 
 projectbutton.innerHTML="Projects";
 settingsbutton.innerHTML="Settings";
 formatbutton.innerHTML="Format";
+updatebutton.innerHTML="Check For Update"
 
 document.body.appendChild(projectbutton);
+document.body.appendChild(updatebutton);
 document.body.appendChild(settingsbutton);
 document.body.appendChild(formatbutton);
 
@@ -52,4 +55,5 @@ function project(a) {
 	}else{x.document.body.innerHTML+="<h1>No Projects</h1>"}
 	 
 };
+projectbutton.onclick = "project()"
 `)
