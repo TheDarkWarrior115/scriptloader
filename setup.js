@@ -1,5 +1,4 @@
 localStorage.setItem("setup","true");
-import("update.js")
 localStorage.setItem("main",`
 
 if(window.matchMedia('(prefers-color-scheme: dark)').matches===true){
@@ -56,4 +55,5 @@ function project(a) {
 	 
 };
 projectbutton.onclick = "project()"
-`)
+`);
+import("update.js");
